@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+*.log
+server/data/._vivamax_cookies.txt
+server/data/._vivamax_proxy_cookies.txt
+server/data/_embed_test.html
