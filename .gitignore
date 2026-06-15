@@ -2,6 +2,11 @@ node_modules
 dist
 .env
 *.log
-server/data/._vivamax_cookies.txt
-server/data/._vivamax_proxy_cookies.txt
 server/data/_embed_test.html
+server/data/test_cookies.txt
+server_out.txt
+server_err.txt
+server_test.log
+server_test_err.log
+test_dubmv.html
+opencode-agent/

@@ -32,7 +32,6 @@ interface State {
   targetAudioLang: string | null;
   disclaimerDismissed: boolean;
   ageConfirmed: boolean;
-  adultContentEnabled: boolean;
   setUser: (u: State["user"]) => void;
   toggleWatchlist: (item: SavedItem) => void;
   inWatchlist: (id: number) => boolean;
@@ -44,7 +43,6 @@ interface State {
   setTargetAudioLang: (lang: string | null) => void;
   dismissDisclaimer: () => void;
   confirmAge: () => void;
-  setAdultContentEnabled: (enabled: boolean) => void;
 }
 
 export const useStore = create<State>()(
@@ -58,7 +56,6 @@ export const useStore = create<State>()(
       targetAudioLang: null,
       disclaimerDismissed: false,
       ageConfirmed: false,
-      adultContentEnabled: false,
       setUser: (user) => set({ user }),
       toggleWatchlist: (item) =>
         set((s) => {
@@ -108,7 +105,6 @@ export const useStore = create<State>()(
       setTargetAudioLang: (lang) => set({ targetAudioLang: lang }),
       dismissDisclaimer: () => set({ disclaimerDismissed: true }),
       confirmAge: () => set({ ageConfirmed: true }),
-      setAdultContentEnabled: (enabled) => set({ adultContentEnabled: enabled }),
     }),
     { name: "nova-ott-store" }
   )

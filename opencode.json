@@ -1,0 +1,92 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "model": "opencode/deepseek-v4-flash-free",
+
+  "agent": {
+    "build": {
+      "model": "opencode/deepseek-v4-flash-free",
+      "mode": "primary",
+      "description": "Primary coding agent for NovaStream v2. Orchestrates 10-stage pipeline: Analyze → Research → Plan → Confirm → TODO → Code → Review → Debug → Test → Document.",
+      "prompt": "{file:./opencode-agent/AGENTS.md}",
+      "temperature": 0.6,
+      "maxSteps": 80,
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "plan": {
+      "model": "opencode/big-pickle",
+      "mode": "primary",
+      "description": "Architecture and planning agent.",
+      "prompt": "{file:./opencode-agent/.opencode/agents/plan.md}",
+      "temperature": 0.7,
+      "maxSteps": 30,
+      "permission": {
+        "edit": "ask",
+        "bash": "ask"
+      }
+    },
+    "researcher": {
+      "model": "opencode/nemotron-3-ultra-free",
+      "mode": "subagent",
+      "description": "Research agent for external libraries, APIs, and best practices.",
+      "prompt": "{file:./opencode-agent/.opencode/agents/researcher.md}",
+      "temperature": 0.5,
+      "maxSteps": 25,
+      "permission": {
+        "edit": "deny",
+        "bash": "allow"
+      }
+    },
+    "reviewer": {
+      "model": "opencode/big-pickle",
+      "mode": "subagent",
+      "description": "Code review agent — security, performance, accessibility audit.",
+      "prompt": "{file:./opencode-agent/.opencode/agents/reviewer.md}",
+      "temperature": 0.3,
+      "maxSteps": 20,
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    },
+    "debugger": {
+      "model": "opencode/mimo-v2.5-free",
+      "mode": "subagent",
+      "description": "Debugging agent — root cause analysis and targeted fixes.",
+      "prompt": "{file:./opencode-agent/.opencode/agents/debugger.md}",
+      "temperature": 0.4,
+      "maxSteps": 40,
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "tester": {
+      "model": "opencode/deepseek-v4-flash-free",
+      "mode": "subagent",
+      "description": "QA and testing agent — feature validation and regression checks.",
+      "prompt": "{file:./opencode-agent/.opencode/agents/tester.md}",
+      "temperature": 0.3,
+      "maxSteps": 35,
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "documenter": {
+      "model": "opencode/nemotron-3-ultra-free",
+      "mode": "subagent",
+      "description": "Documentation agent — README, changelog, code comments.",
+      "prompt": "{file:./opencode-agent/.opencode/agents/documenter.md}",
+      "temperature": 0.5,
+      "maxSteps": 20,
+      "permission": {
+        "edit": "allow",
+        "bash": "read"
+      }
+    }
+  }
+}

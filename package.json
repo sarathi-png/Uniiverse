@@ -13,8 +13,6 @@
     "dubmv:popular": "tsx server/scripts/popular.ts",
     "dubmv:map": "tsx server/scripts/map-popular.ts",
     "dubmv:batch": "tsx server/scripts/batch-cache.ts",
-    "vivamax:catalog": "tsx server/scripts/vivamax-catalog.ts",
-    "vivamax:embeds": "tsx server/scripts/vivamax-embeds.ts",
     "start": "tsx server/index.ts",
     "typecheck": "tsc --noEmit"
   },

@@ -27,9 +27,6 @@ const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 const TamilDubbed = lazy(() => import("./pages/TamilDubbed"));
 const DubmvWatch = lazy(() => import("./pages/DubmvWatch"));
-const VivamaxBrowse = lazy(() => import("./pages/VivamaxBrowse"));
-const VivamaxWatch = lazy(() => import("./pages/VivamaxWatch"));
-
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -81,8 +78,6 @@ function AnimatedRoutes() {
           <Route path="/explore" element={<Page><Explore /></Page>} />
           <Route path="/browse/tamil-dubbed" element={<Page><TamilDubbed /></Page>} />
           <Route path="/watch/dubmv/:fileId" element={<Page><DubmvWatch /></Page>} />
-          <Route path="/browse/vivamax" element={<Page><VivamaxBrowse /></Page>} />
-          <Route path="/watch/vivamax/:slug" element={<Page><VivamaxWatch /></Page>} />
           <Route path="/dmca" element={<Page><DMCAPage /></Page>} />
           <Route path="/privacy" element={<Page><PrivacyPage /></Page>} />
           <Route path="/terms" element={<Page><TermsPage /></Page>} />

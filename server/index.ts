@@ -7,7 +7,6 @@ import { tmdbRouter } from "./routes/tmdb.js";
 import { languageRouter } from "./routes/language.js";
 import { torrentRouter } from "./routes/torrent.js";
 import { dubmvRouter } from "./routes/dubmv.js";
-import { vivamaxRouter } from "./routes/vivamax.js";
 
 // Prevent WebTorrent microtask crashes from killing the server (Node v24 compat)
 const WT_PATTERNS = ["reading 'reserve'", "reading 'missing'"];
@@ -41,7 +40,6 @@ app.use("/api/tmdb", tmdbRouter);
 app.use("/api/language", languageRouter);
 app.use("/api/torrent", torrentRouter);
 app.use("/api/dubmv", dubmvRouter);
-app.use("/api/vivamax", vivamaxRouter);
 
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", version: "2.0.0", timestamp: Date.now() });
